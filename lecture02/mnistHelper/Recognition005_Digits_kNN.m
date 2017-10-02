@@ -3,6 +3,7 @@ function Recognition005_Digits_kNN()
     lblTrainAll = loadMNISTLabels('../data/train-labels.idx1-ubyte');
     
     Mdl = fitcknn(imgTrainAll', lblTrainAll);
+    
     imgTestAll = loadMNISTImages('../data/t10k-images.idx3-ubyte');
     lblTestAll = loadMNISTLabels('../data/t10k-labels.idx1-ubyte');
     
@@ -10,7 +11,7 @@ function Recognition005_Digits_kNN()
     nNumber = randi([1 nTestImgs]);
     
     imgTest = imgTestAll(:, nNumber);
-    lblPredictTest = predict(Mdl, imgTest);
+    lblPredictTest = predict(Mdl, imgTest');
     lblImageTest = lblTestAll(nNumber);
     figure;
     
